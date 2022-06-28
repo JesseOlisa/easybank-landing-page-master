@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap');
+/*RESETS*/
+/*colors reset*/
+:root {
+        /*primary colors*/
+        --dark-blue: hsl(233, 26%, 24%);
+        --lime-green: hsl(136, 65%, 51%);
+        --bright-cyan: hsl(192, 70%, 51%);
+        /*neutral colors*/
+        --grayish-blue: hsl(233, 8%, 62%);
+        --light-grayish-blue: hsl(220, 16%, 96%);
+        --very-light-gray: hsl(0, 0%, 98%);
+        --white-color: hsl(0, 0%, 100%);
+}
+
+/*general*/
+
+/*box-sizing*/
+*, *:before, *:after {
+        box-sizing: border-box;
+}
+    
+/* Remove default margin */
+body,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p
+{
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+/*makes image easier to work with*/
+img, picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    border: none;
+}
+
+ul, li {
+    list-style: none;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--white-color);
+}
+
+a:focus {
+    outline: 1px solid var(--white-color );
+} 
+
+.preload * { /*removes transition till after page loads*/
+    transition: none !important ;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Set core body defaults */
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 100%);
+    color: var(--grayish-blue);
+    font-size: 1.125rem;
+    font-family: 'Public Sans', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    background-color: var(--very-light-gray);
+    background-image: url(./images/bg-intro-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    line-height: 1.4;
+}
+body::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: url(./images/image-mockups.png);
+    background-repeat: no-repeat;
+    background-position: top -4.1rem center;
+    background-size: 90.5%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+/******** BODY MEDIA QUERIES********/
+@media screen and (min-width: 31.25rem) {
+    body {
+        background-image: url(./images/bg-intro-desktop.svg);
+        background-position: top -4rem right -8rem;
+        background-size: 38rem;
+    }
+    body::after {
+        background-size: 30rem;
+        background-position: top -10rem center;
+    }
+}
+
+@media screen and (min-width: 40rem) {
+    body {
+        background-position: top -7.8rem right -12rem;
+        background-size: 48rem;
+        text-align: left;
+    }
+    body::after {
+        background-position: top -4.1rem right -7rem;
+        background-size: 30rem;
+    }
+}
+@media screen and (min-width: 62.5rem) {
+    body {
+        background-size: 70%;
+    }
+    body::after {
+        background-size: 52.5%;
+    }
+}
+
+
+/*======
+UTILITY CLASS
+======*/
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.padding-section {
+    padding-inline: 6%;
+}
+.position-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+/******** MEDIA QUERIES FOR UTLITIES STYLES********/
+@media screen and (min-width: 40rem) {
+    .padding-section {
+        padding-inline: 6%;
+    }
+}
+@media screen and (min-width: 72rem) {
+    .padding-section {
+        padding-inline: 10%;
+    }
+    .flex {
+        flex-wrap: nowrap;
+    }
+}
+
+/*==========
+STYLING FOR BUTTONS
+===========*/
+
+.btn {
+    background: linear-gradient(to right, hsl(136, 65%, 51%),hsl(192, 70%, 51%));
+    padding: .8rem 2.1rem;
+    border-radius: 1.6rem;
+    color: var(--light-grayish-blue);
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+.btn::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 1.6rem;
+    transition: background-color 0.3s ease;
+}
+.btn:hover::after {
+    background-color: hsla(0, 0%, 100%, 0.4);
+}
+/*==========
+HEADER SECTION
+===========*/
+
+header {
+    background-color: var(--white-color);
+    justify-content: space-between !important;
+    position: relative;
+    padding: 1.1rem;
+}
+.nav-links-container {
+    margin: 0;
+    display: none;
+}
+header button {
+    display: none;
+}
+.close-btn {
+    display: none;
+}
+
+/******** HEADER MEDIA QUERIES********/
+@media screen and (min-width: 40rem) {
+    header {
+        padding-inline: 4rem;
+        padding-block: 0;
+    }
+    .nav-links-container {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    .nav-links-container li {
+        padding: 1.6rem 0;
+        margin-right: .6rem;
+        text-align: left;
+        position: relative;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    .nav-links-container li:hover {
+        color: var(--dark-blue);
+    }
+    .nav-links-container li::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 3.75px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right, hsl(136, 65%, 51%) 20%,hsl(192, 70%, 51%) 80%);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .nav-links-container li:hover::before {
+        opacity: 1;
+    }
+    .hamburger-container {
+        display: none;
+    }
+}
+@media screen and (min-width: 53.5rem) {
+    header  button{
+        display: block;
+    }
+    .nav-links-container li {
+        margin-right: 1rem;
+    }
+}
+@media screen and (min-width: 75rem){
+    header {
+        padding-inline: 10rem;
+    }
+}
+
+/*==========
+INTRO SECTION
+===========*/
+.intro-section {
+    min-height: 40rem;
+    padding-top: 20rem;
+    padding-bottom: 5rem;
+}
+.intro-section h1 {
+    font-size: 2.7rem;
+    font-weight: 400;
+    margin-bottom: 1.8rem;
+    line-height: 1;
+}
+.intro-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+/******** INTRO SECTION MEDIA QUERIES********/
+@media screen and (min-width: 418px) {
+    .intro-section {
+        padding-top: 26rem;
+    }
+}
+@media screen and (min-width: 40rem) {
+    .intro-section {
+        padding-top: 22rem;
+    }
+    .intro-section article {
+        max-width: 30rem;
+    }
+    .intro-section h1 {
+        font-size: 3.7rem;
+    }
+    .intro-section p {
+        font-size: 1.35rem;
+    }
+}
+@media screen and (min-width: 45.63rem) {
+    .intro-section {
+        padding-top: 18rem;
+    }
+}
+@media screen and (min-width: 62.5rem) {
+    .intro-section {
+        padding-top: 0;
+    }
+}
+
+/*==========
+BENEFITS SECTION
+===========*/
+.benefits-section {
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    min-height: 40rem;
+    background-color: var(--light-grayish-blue);
+}
+.benefits-section article h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.benefits-section article p {
+    font-size: 1.1rem;
+}
+.benefit-container {
+    margin-top: 4rem;
+}
+.benefit-card {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+.benefit-card img {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-inline: auto;
+}
+.benefit-card h2 {
+    margin-bottom: 1.4rem;
+    font-weight: 300;
+}
+
+/******** BENEFIT SECTION MEDIA QUERIES********/
+@media screen and (min-width: 40rem) {
+    .benefits-section {
+        padding-block: 0;
+        z-index: -2;
+    }
+    .benefits-section article {
+        max-width: 42rem;
+        text-align: center;
+        margin-inline: auto;
+    }
+    .benefits-section article p {
+        font-size: 1.3rem;
+    }
+    .benefit-card {
+        max-width: 18rem;
+        font-size: 1.2rem;
+    }
+    .benefit-card img {
+        margin-inline: 0;
+    }
+    .benefit-card:nth-child(2), .benefit-card:nth-child(3){
+        margin-inline: 1rem;
+    }
+}
+@media screen and (min-width: 72rem) {
+    .benefits-section article {
+        text-align: left;
+        margin-inline: 0;
+    }
+}
+
+
+/*==========
+ARTICLES SECTION
+===========*/
+.articles-section {
+    padding-block: 5rem;
+}
+.articles-section h2 {
+     font-size: 2.3rem;
+     font-weight: 400;
+     margin-bottom: 2.6rem;
+}
+.article-card {
+    background-color: var(--white-color);
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+}
+.article-card img {
+    aspect-ratio: 1.3;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    /* margin-bottom: 1.2rem; */
+}
+.text-container {
+    padding: 1.6rem 1.4rem;
+    text-align: left;
+}
+.article-card p{
+    margin-bottom: 1rem;
+    font-size: .95rem;
+}
+.article-author {
+    font-size: .7rem !important;
+    margin-bottom: .6rem;
+}
+.article-card h3 {
+    font-size: 1.16rem;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: .6rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.article-card h3:hover {
+    color: var(--lime-green);
+}
+
+/******** ARTICLE SECTION MEDIA QUERIES********/
+@media screen and (min-width: 40rem) {
+    .articles-container {
+        align-items: stretch !important;
+    }
+    .articles-section h2 {
+        font-size: 2.8rem;
+        margin-bottom: 2.6rem;
+        text-align: center;
+   }
+   .article-card {
+    width: 16.3rem;
+   }
+    .article-card:not(:last-child) {
+        margin-right: 2rem;
+    }
+}
+@media screen and (min-width: 72rem) {
+    .articles-section h2 {
+        text-align: left;
+    }
+}
+
+/*==========
+FOOTER
+===========*/
+footer {
+    background-color: var(--dark-blue);
+    padding-block: 1.8rem;
+}
+.footer-container {
+    flex-direction: column;
+    margin-bottom: .8rem;
+}
+.socials-container {
+    flex-direction: column;
+}
+.social-info img {
+    margin-bottom: 1.2rem;
+    margin-inline: auto;
+}
+.social-info a {
+    font-size: 1.6rem;
+}
+.social-info a:not(:last-child) {
+    margin-right: 1.2rem;
+}
+.footer-links {
+    flex-direction: column;
+    margin-top: .6rem;
+    text-align: center;
+}
+.footer-links a:not(:last-child) {
+   display: block;
+   margin-block: 1rem;
+}
+.rights {
+    margin-top: 1.6rem;
+    text-align: center;
+}
+.rights button {
+    margin-bottom: 1.6rem;
+}
+
+/******** FOOTER MEDIA QUERIES********/
+
+@media screen and (min-width: 40rem) {
+    footer {
+        padding-inline: 7%;
+    }
+    footer a {
+        transition: color 0.2s ease;
+    }
+    footer a:hover {
+        color: var(--lime-green);
+    }
+    .footer-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .socials-container {
+        min-width: 80%;
+        justify-content: space-evenly !important;
+        flex-direction: row;
+    }
+    .social-info {
+        height: 5rem;
+        margin-right: 1.5rem;
+    }
+    .social-info img {
+        margin-inline: 0;
+        margin-bottom: 2rem;
+    }
+    .social-icons {
+        margin-top: 2.5rem;
+    }
+    .footer-links {
+        flex-direction: row;
+        text-align: left;
+        margin-right: 1rem;
+    }
+    .footer-links div:first-child {
+        margin-right: 5rem;
+    }
+}
+
+@media screen and (min-width: 62.38rem) {
+    .footer-container {
+        justify-content: space-between;
+    }
+    .socials-container {
+        min-width: 52%;
+    }
+    .rights {
+        text-align: right;
+    }
+}
+
+/* MOBILE NAV */
+ @media screen and (max-width: 39rem) {
+    header::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(to bottom, hsla(233, 26%, 24%, 0.6) 11rem, hsla(233, 26%, 24%, 0));
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    header.show-modal::before {
+        opacity: 1;
+    }
+    .nav-links-container {
+        /* display: block; */
+        position: absolute;
+        background-color: var(--white-color);
+        width: 80%;
+        top: 4.5rem;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        transform: translateY(-10%);
+        padding: 1.3rem;
+        border-radius: .4rem;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    .show-nav {
+        opacity: 1 !important;
+    }
+    .nav-links-container li {
+        display: block;
+        padding-block: .5rem;
+    }
+    .nav-links-container li {
+        color: var(--dark-blue);
+        font-weight: 500;
+    }
+    .benefits-section {
+        z-index: -2;
+    }
+ }
