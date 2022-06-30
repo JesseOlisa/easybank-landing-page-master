@@ -12,9 +12,7 @@ This is a solution to the [Easybank landing page challenge on Frontend Mentor](h
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Overview
@@ -33,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://jesseolisa.github.io/easybank-landing-page-master/]
 
 ## My process
 
@@ -48,7 +46,7 @@ Users should be able to:
 
 ### What I learned
 
-i learnt how to work with multiple background images. Placing one over the other.
+I learnt how to work with multiple background images. Placing one over the other.
 
 ### Continued development
 
