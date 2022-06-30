@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://github.com/JesseOlisa/easybank-landing-page-master]
 - Live Site URL: [https://jesseolisa.github.io/easybank-landing-page-master/]
 
 ## My process
