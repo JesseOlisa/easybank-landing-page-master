@@ -609,7 +609,7 @@ footer {
         display: block;
         padding-block: .5rem;
     }
-    .nav-links-container li {
+    .nav-links-container li a {
         color: var(--dark-blue);
         font-weight: 500;
     }
