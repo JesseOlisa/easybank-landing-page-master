@@ -249,9 +249,12 @@ header button {
         text-align: left;
         position: relative;
         cursor: pointer;
+    }
+    .nav-links-container li a {
+        color: var(--grayish-blue);
         transition: color 0.3s ease;
     }
-    .nav-links-container li:hover {
+    .nav-links-container li a:hover {
         color: var(--dark-blue);
     }
     .nav-links-container li::before {
